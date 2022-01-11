@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProdutoServiceService} from "./produto-service.service";
 import {Produto} from "./models/Produto";
 import {ToastrService} from "ngx-toastr";
+import {faCoffee, faTrash} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -14,14 +15,28 @@ export class AppComponent implements OnInit {
   }
 
   title = 'supermercado-frontend';
-  listaDeProdutos:Produto[] = [];
+  listaDeProdutos: Produto[] = [];
+  faCoffee = faCoffee;
+  faTrash = faTrash;
 
   ngOnInit(): void {
+    this.pegarTodosProdutos();
+  }
+
+  excluirProduto(id: Number) {
+    this.produtoService.excluirProduto(id).subscribe(reposta => {
+      this.toastr.success('Produto excluido com sucesso!')
+      this.pegarTodosProdutos();
+    }, error => {
+      this.toastr.error('Erro ao excluir o produto')
+    })
+  }
+
+  pegarTodosProdutos(){
     this.produtoService.pegarProdutos().subscribe(resposta => {
-        this.listaDeProdutos = resposta;
+      this.listaDeProdutos = resposta;
     }, error => {
       this.toastr.error('Erro ao pesquisar produtos!')
     })
   }
-
 }

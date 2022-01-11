@@ -62,6 +62,7 @@
           <th scope="col">Código</th>
           <th scope="col">Preço</th>
           <th scope="col">Quantidade</th>
+          <th scope="col">Ações</th>
         </tr>
         </thead>
         <tbody>
@@ -71,6 +72,12 @@
           <td>{{produto.codigo}}</td>
           <td>{{produto.preco}}</td>
           <td>{{produto.quantidade}}</td>
+          <td>
+            <a style="cursor: pointer" (click)="excluirProduto(produto.id)">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </a>
+
+          </td>
         </tr>
         </tbody>
       </table>

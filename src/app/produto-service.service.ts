@@ -15,4 +15,7 @@ export class ProdutoServiceService {
     return this.http.get<Produto[]>(this.endpoint)
   }
 
+  excluirProduto(id: Number) {
+    return this.http.delete(this.endpoint + `/${id}`)
+  }
 }

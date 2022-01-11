@@ -13,11 +13,11 @@ export class AppComponent implements OnInit {
   }
 
   title = 'supermercado-frontend';
-  produto:Produto[] = [];
+  listaDeProdutos:Produto[] = [];
 
   ngOnInit(): void {
     this.produtoService.pegarProdutos().subscribe(resposta => {
-        this.produto = resposta;
+        this.listaDeProdutos = resposta;
     }, error => {
 
     })

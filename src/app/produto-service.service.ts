@@ -14,4 +14,5 @@ export class ProdutoServiceService {
   pegarProdutos():Observable<Produto[]>{
     return this.http.get<Produto[]>(this.endpoint)
   }
+
 }

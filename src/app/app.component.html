@@ -74,6 +74,11 @@
           <td>{{produto.quantidade}}</td>
           <td>
             <a style="cursor: pointer" (click)="excluirProduto(produto.id)">
+              <fa-icon [icon]="faEdit"></fa-icon>
+            </a>
+          </td>
+          <td>
+            <a style="cursor: pointer" (click)="excluirProduto(produto.id)">
               <fa-icon [icon]="faTrash"></fa-icon>
             </a>
 

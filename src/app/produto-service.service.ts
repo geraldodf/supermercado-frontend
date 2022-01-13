@@ -18,4 +18,5 @@ export class ProdutoServiceService {
   excluirProduto(id: Number) {
     return this.http.delete(this.endpoint + `/${id}`)
   }
+
 }

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProdutoServiceService} from "./produto-service.service";
 import {Produto} from "./models/Produto";
 import {ToastrService} from "ngx-toastr";
-import {faCoffee, faTrash} from '@fortawesome/free-solid-svg-icons';
+import {faCoffee, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
   listaDeProdutos: Produto[] = [];
   faCoffee = faCoffee;
   faTrash = faTrash;
+  faEdit = faEdit;
 
   ngOnInit(): void {
     this.pegarTodosProdutos();
@@ -39,4 +40,5 @@ export class AppComponent implements OnInit {
       this.toastr.error('Erro ao pesquisar produtos!')
     })
   }
+
 }

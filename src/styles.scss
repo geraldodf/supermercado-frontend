@@ -1,2 +1,8 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~ngx-toastr/toastr';
+
+.botoes-acoes-espacamento {
+  padding: 5px;
+  cursor: pointer;
+  color: dimgray;
+}

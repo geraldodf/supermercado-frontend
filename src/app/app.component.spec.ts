@@ -19,7 +19,6 @@ describe('AppComponent', () => {
   it(`should have as title 'supermercado-frontend'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('supermercado-frontend');
   });
 
   it('should render title', () => {

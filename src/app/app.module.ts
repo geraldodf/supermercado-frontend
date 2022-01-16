@@ -9,6 +9,7 @@ import { ProdutosComponent } from './produtos/produtos.component';
 import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app.routing.module";
 import {EditarProdutoComponent} from "./editar-produto/editar-produto.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -16,15 +17,16 @@ import {EditarProdutoComponent} from "./editar-produto/editar-produto.component"
     ProdutosComponent,
     EditarProdutoComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    ToastrModule.forRoot(),
-    FontAwesomeModule,
-    RouterModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        ToastrModule.forRoot(),
+        FontAwesomeModule,
+        RouterModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

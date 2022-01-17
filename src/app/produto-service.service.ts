@@ -25,8 +25,8 @@ export class ProdutoServiceService {
     return this.http.delete(this.endpoint + `/${id}`)
   }
 
-  editarProduto(id: Number, produto: Produto){
-    return this.http.put(this.endpoint + `/${id}`, produto)
+  editarProduto(produto: Produto){
+    return this.http.put(this.endpoint + `/${produto.id}`, produto)
   }
 
 

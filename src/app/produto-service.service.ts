@@ -29,5 +29,7 @@ export class ProdutoServiceService {
     return this.http.put(this.endpoint + `/${produto.id}`, produto)
   }
 
-
+  cadastrarProduto(produto: Produto) {
+     return this.http.post(this.endpoint, produto)
+  }
 }

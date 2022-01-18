@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="editarProduto()">
+  <h3 class="text-center" style="padding: 20px">Formulário de atualização do produto</h3>
+  <div class="input-group mb-1 padding-do-formulario">
+    <span class="input-group-text">Nome</span>
+    <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Descrição do produto"
+           formControlName="descricao"
+    >
+  </div>
+  <div class="input-group mb-1 padding-do-formulario">
+    <span class="input-group-text">Código</span>
+    <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Código do produto"
+           formControlName="codigo"
+    >
+  </div>
+  <div class="input-group mb-3 padding-do-formulario">
+    <span class="input-group-text">R$</span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="preco"
+    >
+  </div>
+  <div class="input-group mb-3 padding-do-formulario">
+    <span class="input-group-text">Quantidade</span>
+    <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Quantidade atual do produto"
+           formControlName="quantidade"
+    >
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg" style="background-color: dimgray"> Confirmar </button>
+</form>

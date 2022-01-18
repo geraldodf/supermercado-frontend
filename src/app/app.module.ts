@@ -10,12 +10,14 @@ import {RouterModule} from "@angular/router";
 import {AppRoutingModule} from "./app.routing.module";
 import {EditarProdutoComponent} from "./editar-produto/editar-produto.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CadastrarProdutoComponent} from "./cadastrar-produto/cadastrar-produto.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProdutosComponent,
-    EditarProdutoComponent
+    EditarProdutoComponent,
+    CadastrarProdutoComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

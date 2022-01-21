@@ -3,6 +3,8 @@ import {ProdutoServiceService} from "../produto-service.service";
 import {ToastrService} from "ngx-toastr";
 import {Produto} from "../../models/Produto";
 import {faCoffee, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
+import {FormControl, FormGroup} from "@angular/forms";
+import {EditarProdutoComponent} from "../editar-produto/editar-produto.component";
 
 @Component({
   selector: 'app-produtos',
@@ -11,13 +13,25 @@ import {faCoffee, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
 })
 export class ProdutosComponent implements OnInit {
 
-  constructor(private produtoService: ProdutoServiceService, private toastr: ToastrService) {
+  constructor(private produtoService: ProdutoServiceService, private toastr: ToastrService, private editarProdutoComponent: EditarProdutoComponent) {
   }
 
   listaDeProdutos: Produto[] = [];
   faCoffee = faCoffee;
   faTrash = faTrash;
   faEdit = faEdit;
+
+  form = new FormGroup({
+    descricao: new FormControl(),
+    codigo: new FormControl()
+  });
+
+  pegarProdutoPelaDescricao(){
+    this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(  resposta => {
+    }, error => {
+
+    })
+  }
 
   ngOnInit(): void {
     this.pegarTodosProdutos();

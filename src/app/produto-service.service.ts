@@ -32,4 +32,8 @@ export class ProdutoServiceService {
   cadastrarProduto(produto: Produto) {
      return this.http.post(this.endpoint, produto)
   }
+
+  pegarProdutosPelaDescrição(descricao: String): Observable<Produto>{
+    return this.http.get<Produto>(this.endpoint +  `/search-descricao?descricao=${descricao}`)}
+
 }

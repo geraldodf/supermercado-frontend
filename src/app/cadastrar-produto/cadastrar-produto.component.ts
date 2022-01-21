@@ -3,6 +3,7 @@ import {Produto} from "../../models/Produto";
 import {ProdutoServiceService} from "../produto-service.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-cadastrar-produto',
@@ -18,7 +19,11 @@ export class CadastrarProdutoComponent implements OnInit {
     quantidade: new FormControl()
   });
 
-  constructor(private produtoService: ProdutoServiceService, private formBuilder: FormBuilder, private router: Router) {
+  constructor(private produtoService: ProdutoServiceService,
+              private formBuilder: FormBuilder,
+              private router: Router,
+              private toastr: ToastrService
+  ) {
 
     this.form = formBuilder.group({
       descricao: [],
@@ -35,10 +40,10 @@ export class CadastrarProdutoComponent implements OnInit {
 
   cadastrarProduto() {
     this.produtoService.cadastrarProduto(this.form.value).subscribe(reposta => {
-
+      this.toastr.success("Produto criado com sucesso!")
         this.router.navigate(["produtos"])
       }, error => {
-
+      this.toastr.error("Erro ao criar produto! Tente novamente.")
       }
     )
   }

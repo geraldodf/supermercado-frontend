@@ -4,6 +4,7 @@ import {HttpClient} from "@angular/common/http";
 import {ProdutoServiceService} from "../produto-service.service";
 import {Produto} from "../../models/Produto";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-editar-produto',
@@ -27,7 +28,8 @@ export class EditarProdutoComponent implements OnInit {
     private http: HttpClient,
     private produtoService: ProdutoServiceService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
 
     this.route.params.subscribe(param => {
@@ -57,9 +59,10 @@ export class EditarProdutoComponent implements OnInit {
   editarProduto() {
     console.log(this.form.value)
     this.produtoService.editarProduto(this.form.value).subscribe(resposta => {
+      this.toastr.success("Produto editado com sucesso!")
       this.router.navigate(["produtos"])
     }, error => {
-
+      this.toastr.error("Erro ao editar produto, tente novamente.")
     })
   }
 

@@ -4,6 +4,7 @@ import {ToastrService} from "ngx-toastr";
 import {Produto} from "../../models/Produto";
 import {faCoffee, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
 import {FormControl, FormGroup} from "@angular/forms";
+import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-produtos',
@@ -15,6 +16,7 @@ export class ProdutosComponent implements OnInit {
   constructor(private produtoService: ProdutoServiceService, private toastr: ToastrService) {
   }
 
+  tipoPesquisa: string = "";
   listaDeProdutos: Produto[] = [];
   faCoffee = faCoffee;
   faTrash = faTrash;
@@ -22,15 +24,24 @@ export class ProdutosComponent implements OnInit {
 
   form = new FormGroup({
     descricao: new FormControl(),
-    codigo: new FormControl()
+    codigo: new FormControl(),
+    radio: new FormControl()
   });
 
-  pegarProdutoPelaDescricao(){
-    this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(  resposta => {
-      this.listaDeProdutos = resposta;
-    }, error => {
 
-    })
+  pegarProdutoPelaDescricao(){
+    if (this.form.get('radio')?.valid) {
+      this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(  resposta => {
+
+        this.listaDeProdutos = resposta;
+      }, error => {
+
+      })
+    } else {
+      this.toastr.error('Selecione pesquisa por código ou descrição')
+    }
+
+    console.log(this.form.get('radio'))
   }
 
   ngOnInit(): void {

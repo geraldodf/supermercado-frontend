@@ -33,7 +33,7 @@ export class ProdutoServiceService {
      return this.http.post(this.endpoint, produto)
   }
 
-  pegarProdutosPelaDescrição(descricao: String): Observable<Produto>{
-    return this.http.get<Produto>(this.endpoint +  `/search-descricao?descricao=${descricao}`)}
+  pegarProdutosPelaDescrição(descricao: String): Observable<Produto[]>{
+    return this.http.get<Produto[]>(this.endpoint +  `/search-descricao?descricao=${descricao}`)}
 
 }

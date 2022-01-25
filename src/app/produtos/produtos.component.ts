@@ -4,7 +4,6 @@ import {ToastrService} from "ngx-toastr";
 import {Produto} from "../../models/Produto";
 import {faCoffee, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
 import {FormControl, FormGroup} from "@angular/forms";
-import {EditarProdutoComponent} from "../editar-produto/editar-produto.component";
 
 @Component({
   selector: 'app-produtos',
@@ -13,7 +12,7 @@ import {EditarProdutoComponent} from "../editar-produto/editar-produto.component
 })
 export class ProdutosComponent implements OnInit {
 
-  constructor(private produtoService: ProdutoServiceService, private toastr: ToastrService, private editarProdutoComponent: EditarProdutoComponent) {
+  constructor(private produtoService: ProdutoServiceService, private toastr: ToastrService) {
   }
 
   listaDeProdutos: Produto[] = [];
@@ -28,6 +27,7 @@ export class ProdutosComponent implements OnInit {
 
   pegarProdutoPelaDescricao(){
     this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(  resposta => {
+      this.listaDeProdutos = resposta;
     }, error => {
 
     })

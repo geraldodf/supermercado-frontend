@@ -34,6 +34,10 @@ export class ProdutoServiceService {
   }
 
   pegarProdutosPelaDescrição(descricao: String): Observable<Produto[]>{
-    return this.http.get<Produto[]>(this.endpoint +  `/search-descricao?descricao=${descricao}`)}
+    return this.http.get<Produto[]>(this.endpoint +  `/search-descricao?descricao=${descricao}`)
+  }
+  pegarProdutosPeloCodigo(codigo: number): Observable<Produto[]>{
+    return this.http.get<Produto[]>(this.endpoint +  `/search-codigo?codigo=${codigo}`)
+  }
 
 }

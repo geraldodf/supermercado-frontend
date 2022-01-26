@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProdutoServiceService} from "../produto-service.service";
 import {ToastrService} from "ngx-toastr";
 import {Produto} from "../../models/Produto";
@@ -29,20 +29,27 @@ export class ProdutosComponent implements OnInit {
   });
 
 
-  pegarProdutoPelaDescricao(){
+  pegarProdutoPelaDescricaoOuCodigo() {
     if (this.form.get('radio')?.valid) {
-      this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(  resposta => {
+      if (this.form.value.descricao != null) {
+        this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(resposta => {
+          this.listaDeProdutos = resposta;
+        }, error => {
 
-        this.listaDeProdutos = resposta;
-      }, error => {
+        })
+      } else {
+        this.produtoService.pegarProdutosPeloCodigo(this.form.value.codigo).subscribe(resposta => {
+          this.listaDeProdutos = resposta;
+        }, error => {
 
-      })
+        })
+      }
+
     } else {
       this.toastr.error('Selecione pesquisa por código ou descrição')
     }
-
-    console.log(this.form.get('radio'))
   }
+
 
   ngOnInit(): void {
     this.pegarTodosProdutos();
@@ -57,7 +64,7 @@ export class ProdutosComponent implements OnInit {
     })
   }
 
-  pegarTodosProdutos(){
+  pegarTodosProdutos() {
     this.produtoService.pegarProdutos().subscribe(resposta => {
       this.listaDeProdutos = resposta;
     }, error => {

@@ -1,5 +1,6 @@
-<form class="row g-3" [formGroup]="form" (ngSubmit)="pegarProdutoPelaDescricaoOuCodigo()" style="padding: 10px">
-  <div class="col-auto">
+
+<form class="row g-3" [formGroup]="form" (ngSubmit)="pegarProdutoPelaDescricaoOuCodigo()" style="padding: 10px" >
+  <div class="col-auto" >
     <input type="radio" name="radio" class="ratio-4x3" value="codigo" required="required"
     formControlName="radio">
     <label style="padding: 5px" >
@@ -20,18 +21,15 @@
            formControlName="codigo">
   </div>
   <div class="col-auto">
-    <button class="btn btn-secondary" type="submit"> Pesquisar</button>
+    <button class="btn btn-secondary" type="submit" style="border-color: black"> Pesquisar</button>
   </div>
   <div class="col-auto">
-    <a (click)="pegarTodosProdutos()" class="btn btn-secondary"> Limpar </a>
+    <a (click)="pegarTodosProdutos()" class="btn btn-secondary" style="border-color: black"> Limpar </a>
   </div>
 </form>
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover" style="background-color: darkgrey">
   <thead>
-  <!--  <th>-->
-  <!--    <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Código do produto">-->
-  <!--  </th>-->
   <tr>
     <th scope="col">ID</th>
     <th scope="col">Descrição</th>
@@ -50,10 +48,10 @@
     <td>{{produto.quantidade}}</td>
     <td>
       <a class="botoes-acoes-espacamento" routerLink="/editar-produto/{{produto.id}}">
-        <fa-icon [icon]="faEdit"></fa-icon>
+        <fa-icon [icon]="faEdit" style="color: black"></fa-icon>
       </a>
       <a class="botoes-acoes-espacamento" (click)="excluirProduto(produto.id)">
-        <fa-icon [icon]="faTrash"></fa-icon>
+        <fa-icon [icon]="faTrash" style="color: black"></fa-icon>
       </a>
     </td>
   </tr>

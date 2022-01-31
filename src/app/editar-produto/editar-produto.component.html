@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="editarProduto()">
+<form [formGroup]="form" (ngSubmit)="editarProduto()" style="background-color: darkgrey">
   <h3 class="text-center" style="padding: 20px">Formulário de atualização do produto</h3>
   <div class="input-group mb-1 padding-do-formulario">
     <span class="input-group-text">Nome</span>
@@ -23,5 +23,7 @@
            formControlName="quantidade"
     >
   </div>
-  <button type="submit" class="btn btn-primary btn-lg" style="background-color: dimgray"> Confirmar </button>
+  <div class="text-center">
+  <button type="submit" class="btn btn-primary btn-lg" style="background-color: dimgray; border-color: black" > Confirmar </button>
+  </div>
 </form>

@@ -1,13 +1,12 @@
-
-<form class="row g-3" [formGroup]="form" (ngSubmit)="pegarProdutoPelaDescricaoOuCodigo()" style="padding: 10px" >
-  <div class="col-auto" >
+<form class="row g-3" [formGroup]="form" (ngSubmit)="pegarProdutoPelaDescricaoOuCodigo()" style="padding: 10px">
+  <div class="col-auto">
     <input type="radio" name="radio" class="ratio-4x3" value="codigo" required="required"
-    formControlName="radio">
-    <label style="padding: 5px" >
+           formControlName="radio">
+    <label style="padding: 5px">
       Código
     </label>
     <input type="radio" name="radio" class="ratio-4x3" value="descricao" required="required"
-    formControlName="radio">
+           formControlName="radio">
     <label style="padding: 5px">
       Descrição
     </label>
@@ -49,6 +48,7 @@
     <td>
       <a class="botoes-acoes-espacamento" routerLink="/editar-produto/{{produto.id}}">
         <fa-icon [icon]="faEdit" style="color: black"></fa-icon>
+
       </a>
       <a class="botoes-acoes-espacamento" (click)="excluirProduto(produto.id)">
         <fa-icon [icon]="faTrash" style="color: black"></fa-icon>

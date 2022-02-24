@@ -1,21 +1,30 @@
-<form [formGroup]="form" (ngSubmit)="cadastrarProduto()">
+<form [formGroup]="form" (ngSubmit)="cadastrarProduto()" style="background-color: darkgrey !important;">
   <h3 class="text-center" style="padding: 20px">Formulário de cadastro de produto</h3>
   <div class="input-group mb-1 padding-do-formulario">
-    <span class="input-group-text">Nome</span>
+    <span class="input-group-text"> Nome </span>
     <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Descrição do produto"
            formControlName="descricao"
     >
   </div>
   <div class="input-group mb-1 padding-do-formulario">
-    <span class="input-group-text">Código</span>
+    <span class="input-group-text"> Código </span>
     <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Código do produto"
            formControlName="codigo"
     >
   </div>
   <div class="input-group mb-3 padding-do-formulario">
-    <span class="input-group-text">R$</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="preco"
+    <span class="input-group-text"> Preço pago </span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Preço pago"
+           formControlName="precoDeCompra"
     >
+    <span class="input-group-text"> Preço de Venda </span>
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Preço de Venda"
+           formControlName="precoDeVenda"
+    >
+<!--    <span class="input-group-text"> Lucro </span>-->
+<!--    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Lucro"-->
+<!--           formControlName="lucro"-->
+<!--    >-->
   </div>
   <div class="input-group mb-3 padding-do-formulario">
     <span class="input-group-text">Quantidade</span>
@@ -23,5 +32,5 @@
            formControlName="quantidade"
     >
   </div>
-  <button type="submit" class="btn btn-primary btn-lg" style="background-color: dimgray"> Confirmar </button>
+  <button type="submit" class="btn btn-primary btn-lg" style="background-color: dimgray"> Confirmar</button>
 </form>

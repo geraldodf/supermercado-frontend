@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Produto} from "../../models/Produto";
 import {ProdutoServiceService} from "../produto-service.service";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
@@ -15,7 +14,8 @@ export class CadastrarProdutoComponent implements OnInit {
   form = new FormGroup({
     descricao: new FormControl(),
     codigo: new FormControl(),
-    preco: new FormControl(),
+    precoDeCompra: new FormControl(),
+    precoDeVenda: new FormControl(),
     quantidade: new FormControl()
   });
 
@@ -28,7 +28,8 @@ export class CadastrarProdutoComponent implements OnInit {
     this.form = formBuilder.group({
       descricao: [],
       codigo: [],
-      preco: [],
+      precoDeCompra: [],
+      precoDeVenda: [],
       quantidade: []
     })
 

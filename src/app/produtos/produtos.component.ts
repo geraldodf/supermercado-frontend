@@ -2,9 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ProdutoServiceService} from "../produto-service.service";
 import {ToastrService} from "ngx-toastr";
 import {Produto} from "../../models/Produto";
-import {faCoffee, faTrash, faEdit} from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faEdit, } from '@fortawesome/free-solid-svg-icons';
 import {FormControl, FormGroup} from "@angular/forms";
-import {forkJoin} from "rxjs";
 
 @Component({
   selector: 'app-produtos',
@@ -16,9 +15,7 @@ export class ProdutosComponent implements OnInit {
   constructor(private produtoService: ProdutoServiceService, private toastr: ToastrService) {
   }
 
-  tipoPesquisa: string = "";
   listaDeProdutos: Produto[] = [];
-  faCoffee = faCoffee;
   faTrash = faTrash;
   faEdit = faEdit;
 

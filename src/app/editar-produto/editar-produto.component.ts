@@ -18,7 +18,8 @@ export class EditarProdutoComponent implements OnInit {
   form = new FormGroup({
     descricao: new FormControl(),
     codigo: new FormControl(),
-    preco: new FormControl(),
+    precoDeCompra: new FormControl(),
+    precoDeVenda: new FormControl(),
     quantidade: new FormControl()
   });
 
@@ -37,10 +38,10 @@ export class EditarProdutoComponent implements OnInit {
     })
 
     this.form = formBuilder.group({
-      id: [],
       descricao: [],
       codigo: [],
-      preco: [],
+      precoDeCompra: [],
+      precoDeVenda: [],
       quantidade: []
     })
   }
@@ -51,7 +52,7 @@ export class EditarProdutoComponent implements OnInit {
   pegarProdutoPeloId(id: Number) {
     this.produtoService.pegarProdutoPeloID(id).subscribe(resposta => {
       this.criarFormulario(resposta)
-      console.log(resposta.preco.toExponential())
+      console.log(resposta.precoDeVenda.toExponential())
     }, error => {
     })
   }
@@ -71,7 +72,8 @@ export class EditarProdutoComponent implements OnInit {
       id: [produto.id],
       descricao: [produto.descricao],
       codigo: [produto.codigo],
-      preco: [produto.preco],
+      precoDeCompra: [produto.precoDeCompra],
+      precoDeVenda: [produto.precoDeVenda],
       quantidade: [produto.quantidade]
     })
   }

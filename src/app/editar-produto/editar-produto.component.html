@@ -1,7 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="editarProduto()" style="background-color: darkgrey">
   <h3 class="text-center" style="padding: 20px">Formulário de atualização do produto</h3>
   <div class="input-group mb-1 padding-do-formulario">
-    <span class="input-group-text">Nome</span>
+    <span class="input-group-text"> Nome </span>
     <input type="text" class="form-control" aria-describedby="basic-addon3" placeholder="Descrição do produto"
            formControlName="descricao"
     >
@@ -14,10 +14,12 @@
   </div>
   <div class="input-group mb-3 padding-do-formulario">
     <span class="input-group-text">Preço de Compra</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="precoDeCompra"
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+           formControlName="precoDeCompra"
     >
     <span class="input-group-text">Preço De Venda</span>
-    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" formControlName="precoDeVenda"
+    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+           formControlName="precoDeVenda"
     >
   </div>
   <div class="input-group mb-3 padding-do-formulario">
@@ -27,6 +29,8 @@
     >
   </div>
   <div class="text-center">
-  <button type="submit" class="btn btn-primary btn-lg" style="background-color: dimgray; border-color: black" > Confirmar </button>
+    <button type="submit" class="btn btn-primary btn-lg" style="background-color: dimgray; border-color: black">
+      Confirmar
+    </button>
   </div>
 </form>

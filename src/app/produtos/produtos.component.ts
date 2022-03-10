@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ProdutoServiceService} from "../produto-service.service";
 import {ToastrService} from "ngx-toastr";
 import {Produto} from "../../models/Produto";
-import { faTrash, faEdit, } from '@fortawesome/free-solid-svg-icons';
+import {faTrash, faEdit,} from '@fortawesome/free-solid-svg-icons';
 import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
@@ -32,13 +32,13 @@ export class ProdutosComponent implements OnInit {
         this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(resposta => {
           this.listaDeProdutos = resposta;
         }, error => {
-
+          this.toastr.error("Houve um erro na requisição!")
         })
       } else {
         this.produtoService.pegarProdutosPeloCodigo(this.form.value.codigo).subscribe(resposta => {
           this.listaDeProdutos = resposta;
         }, error => {
-
+          this.toastr.error("Houve um erro na requisição!")
         })
       }
 

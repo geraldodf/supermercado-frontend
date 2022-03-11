@@ -27,13 +27,16 @@ export class ProdutosComponent implements OnInit {
 
 
   pegarProdutoPelaDescricaoOuCodigo() {
+    console.log(this.form.value)
     if (this.form.get('radio')?.valid) {
-      if (this.form.value.descricao != null) {
-        this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(resposta => {
-          this.listaDeProdutos = resposta;
-        }, error => {
-          this.toastr.error("Houve um erro na requisição!")
-        })
+      if (this.form.value.radio == 'descricao') {
+        if (this.form.value.descricao != null) {
+          this.produtoService.pegarProdutosPelaDescrição(this.form.value.descricao).subscribe(resposta => {
+            this.listaDeProdutos = resposta;
+          }, error => {
+            this.toastr.error("Houve um erro na requisição!")
+          })
+        }
       } else {
         this.produtoService.pegarProdutosPeloCodigo(this.form.value.codigo).subscribe(resposta => {
           this.listaDeProdutos = resposta;
@@ -41,18 +44,22 @@ export class ProdutosComponent implements OnInit {
           this.toastr.error("Houve um erro na requisição!")
         })
       }
-
     } else {
       this.toastr.error('Selecione pesquisa por código ou descrição')
     }
   }
 
 
-  ngOnInit(): void {
+  ngOnInit()
+    :
+    void {
     this.pegarTodosProdutos();
   }
 
-  excluirProduto(id: Number) {
+  excluirProduto(id
+                   :
+                   Number
+  ) {
     this.produtoService.excluirProduto(id).subscribe(reposta => {
       this.toastr.success('Produto excluido com sucesso!')
       this.pegarTodosProdutos();
